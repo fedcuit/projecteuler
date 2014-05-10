@@ -1,7 +1,6 @@
 import org.scalatest.{ShouldMatchers, FunSpec}
-import scala.collection.mutable
-import scala.util.control.Breaks._
 import Problem2.fibonacci
+import scala.collection.mutable
 
 class Problem2$Test extends FunSpec with ShouldMatchers {
   describe("Problem2") {
@@ -10,16 +9,16 @@ class Problem2$Test extends FunSpec with ShouldMatchers {
     }
 
     it("should able to calculate the sum of the even-valued terms for fibonacci numbers whose values do not exceed four million.") {
-      var total = new mutable.MutableList[Long]()
-      breakable {
-        for (x <- 1 to Int.MaxValue) {
-          val sum: Long = fibonacci.take(x).sum
-          if (sum > 4000000L) break()
-          if (sum % 2 == 0) {
-            total += sum
-          }
+      var total = mutable.MutableList[Int]()
+
+      (1 to Int.MaxValue)
+        .takeWhile(x => {// it's tricky to write in this way to break the loop since Scala doesn't have `break`
+        val result = fibonacci.take(x).sum
+        if (result <= 4000000L && result % 2 == 0) {
+          total += result
         }
-      }
+        result <= 4000000L
+      })
 
       total.sum should equal(4613710L)
     }
