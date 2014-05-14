@@ -20,7 +20,7 @@ object CalendarUtils {
     (dates.head, dates(1), dates.last)
   }
 
-  def yearMonthGenerator: Iterator[(Int, Int)] = Iterator.iterate((1901, 1))(t => {
+  def yearMonthGenerator(fromYear: Int = 1901, fromMonth: Int = 1): Iterator[(Int, Int)] = Iterator.iterate((fromYear, fromMonth))(t => {
     if (t._2 == 12) (t._1 + 1, 1) else (t._1, t._2 + 1)
   })
 }

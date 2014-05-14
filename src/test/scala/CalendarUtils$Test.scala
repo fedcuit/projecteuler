@@ -44,7 +44,7 @@ class CalendarUtils$Test extends FunSpec with ShouldMatchers {
 
     it("should able to generate a sequence of date increased by month") {
       val dates = List((1901, 1), (1901, 2), (1901, 3), (1901, 4), (1901, 5), (1901, 6), (1901, 7), (1901, 8), (1901, 9), (1901, 10), (1901, 11), (1901, 12), (1902, 1))
-      CalendarUtils.yearMonthGenerator.take(13).toList should equal(dates)
+      CalendarUtils.yearMonthGenerator().take(13).toList should equal(dates)
     }
   }
 
