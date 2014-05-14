@@ -1,4 +1,4 @@
-import Utils._
+import MathUtils._
 
 object Problem10 {
   def sumOfPrimes(n: Long): Long = {
