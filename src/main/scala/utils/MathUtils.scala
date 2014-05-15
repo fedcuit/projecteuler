@@ -17,4 +17,6 @@ object MathUtils {
   def factors(n: Long): List[Long] = (for (i <- 1L to (sqrt(n).toInt + 1) if n % i == 0) yield List(i, n / i)).flatten.toSet.toList.sorted
 
   def isPrime(l: Long): Boolean = factors(l) == List(1, l)
+
+  def fibonacci: Stream[Int] = Stream.cons(1, Stream.cons(2, fibonacci.zip(fibonacci.tail).map(x => x._1 + x._2)))
 }

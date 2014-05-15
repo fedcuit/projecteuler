@@ -1,5 +1,5 @@
 import org.scalatest.{ShouldMatchers, FunSpec}
-import Problem2.fibonacci
+import utils.MathUtils.fibonacci
 import scala.collection.mutable
 
 class Problem2$Test extends FunSpec with ShouldMatchers {
