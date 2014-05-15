@@ -1,4 +1,5 @@
 import scala.collection.Iterator.iterate
+import utils.MathUtils
 import MathUtils._
 
 object Problem7 {

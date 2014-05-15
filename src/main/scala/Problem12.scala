@@ -1,3 +1,4 @@
+import utils.MathUtils
 import MathUtils._
 
 object Problem12 {
