@@ -1,9 +1,10 @@
 import scala.math._
 
 object MathUtils {
-  def amicablePair(n: Long): (Long, Long) = {
-    val sum = factors(n).init.sum
-    (sum, factors(sum).init.sum)
+  def amicablePair(a: Long): (Long, Long, Boolean) = {
+    val b = factors(a).init.sum
+    val c = factors(b).init.sum
+    (b, a, a == c)
   }
 
   def factorial(n: BigInt): BigInt = if (n == BigInt(1)) 1 else n * factorial(n - 1)

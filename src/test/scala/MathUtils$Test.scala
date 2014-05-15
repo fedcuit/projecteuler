@@ -18,7 +18,7 @@ class MathUtils$Test extends FunSpec with ShouldMatchers {
     }
 
     it("should able to generate a possible amicable numbers pair") {
-      MathUtils.amicablePair(220) should equal((284, 220))
+      MathUtils.amicablePair(220) should equal((284, 220, true))
     }
   }
 }
