@@ -3,13 +3,20 @@ package utils
 import scala.math._
 
 object MathUtils {
+  def lexiPermutations(digits: String): List[String] = {
+    (for (x <- digits.toInt to digits.reverse.toInt;
+          n = if (x.toString.length == digits.length) x.toString else "0" + x.toString;
+          if n.sorted == digits)
+    yield n).toList
+  }
+
   def amicablePair(a: Long): (Long, Long, Boolean) = {
     def d(n: Long = a): Long = {
       factors(n).init.sum
     }
     val b = d(a)
     val c = d(b)
-    (a, b, a==c && a!=b)
+    (a, b, a == c && a != b)
   }
 
   def factorial(n: BigInt): BigInt = if (n == BigInt(1)) 1 else n * factorial(n - 1)

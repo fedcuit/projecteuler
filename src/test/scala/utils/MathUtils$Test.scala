@@ -23,5 +23,10 @@ class MathUtils$Test extends FunSpec with ShouldMatchers {
       MathUtils.amicablePair(220) should equal((220, 284, true))
       MathUtils.amicablePair(36) should equal((36, 55, false))
     }
+
+    it("should able to generate a lexicographic permutations") {
+      MathUtils.lexiPermutations("012") should equal(List("012", "021", "102", "120", "201", "210"))
+    }
+
   }
 }
