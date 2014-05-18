@@ -1,13 +1,17 @@
 package utils
 
 import scala.math._
+import utils.WordUtils.beHead
 
 object MathUtils {
   def lexiPermutations(digits: String): List[String] = {
-    (for (x <- digits.toInt to digits.reverse.toInt;
-          n = if (x.toString.length == digits.length) x.toString else "0" + x.toString;
-          if n.sorted == digits)
-    yield n).toList
+    if (digits.size >= 2) {
+      beHead(digits).map(s => {
+        lexiPermutations(s.tail).map(s.head + _)
+      }).flatten
+    } else {
+      digits.split("").tail.toList
+    }
   }
 
   def amicablePair(a: Long): (Long, Long, Boolean) = {
