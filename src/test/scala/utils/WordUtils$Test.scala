@@ -19,5 +19,9 @@ class WordUtils$Test extends FunSpec with ShouldMatchers {
       WordUtils.position('I') should equal(9)
       WordUtils.position('N') should equal(14)
     }
+    
+    it("should able to generate a sequence heads with a letter and tails with a ordered sequence") {
+      WordUtils.beHead("abcde") should equal(List("abcde", "bacde", "cabde", "dabce", "eabcd"))
+    }
   }
 }
