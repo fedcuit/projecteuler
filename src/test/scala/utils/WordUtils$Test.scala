@@ -20,23 +20,28 @@ class WordUtils$Test extends FunSpec with ShouldMatchers {
       position('I') should equal(9)
       position('N') should equal(14)
     }
-    
+
     it("should able to generate a sequence heads with a letter and tails with a ordered sequence") {
       beHead("abcde") should equal(List("abcde", "bacde", "cabde", "dabce", "eabcd"))
     }
 
-    it("should able to find the longest recurring cycle in a string") {
-      longestRecurringCycle("166666666666666666666666666666666") should equal("6")
-      longestRecurringCycle("333333333333333333333333333333333") should equal("3")
-      longestRecurringCycle("142857142857142857142857142857142857142857") should equal("142857")
-    }
-
     it("should able to find out the continuous occurrence count of a sub string in a string") {
+      continuousCount("666666666666666", "6") should equal(15) // repeating single letter
       continuousCount("16126126126126129", "612") should equal(5) // with both prefix and suffix
       continuousCount("1612612612612612", "612") should equal(5) // with only prefix
       continuousCount("6126126126126129", "612") should equal(5) // with only suffix
       continuousCount("612612612612612", "612") should equal(5) // without prefix and suffix
       continuousCount("16126126126126129", "4") should equal(0)
     }
+
+    it("should able to find the longest recurring cycle in a string") {
+      longestRecurringCycle("66666666666666666666666666666666") should equal("6", 32)
+      longestRecurringCycle("166666666666666666666666666666666") should equal("6", 32)
+      longestRecurringCycle("333333333333333333333333333333333") should equal("3", 33)
+      longestRecurringCycle("142857142857142857142857142857142857142857") should equal("142857", 7)
+      longestRecurringCycle("142857142857142857142857142857142857142857142") should equal("142857", 7)
+      longestRecurringCycle("14142857142857142857142857142857142857142857142") should equal("142857", 7)
+    }
+
   }
 }
